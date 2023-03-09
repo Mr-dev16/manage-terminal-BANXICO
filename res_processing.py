@@ -18,11 +18,11 @@ def writer_data(dato):
     idSeries = data_dict['bmx']['series']
     dates = idSeries[0]
     numbers = dates.get('datos')
-    # txt = open("data.txt", 'a')
+    numbers_list = []
     for date in range(0, len(numbers)):
-        # dict_data = numbers[date]
-        txt = open("data.txt", 'a')
-        txt.write(f"\n{numbers[date]}")
-        txt.close()
-        print(date)
-        return "view data in document"
+        numbers_list.append(numbers[date])
+        if len(numbers_list) == len(numbers):
+            txt = open("data.txt", 'a')
+            txt.write(f"{numbers_list}")
+            txt.close()
+            return "view data in document"
